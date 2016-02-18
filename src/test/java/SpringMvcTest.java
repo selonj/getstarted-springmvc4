@@ -17,7 +17,7 @@ public class SpringMvcTest {
     }
 
     @Test
-    public void startApplication() throws Exception {
+    public void ping() throws Exception {
         driver.get("/");
 
         driver.hasSentMessageContaining("Get Started Spring Mvc4");
