@@ -9,10 +9,13 @@ sourceCompatibility = 1.5
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-    testCompile 'junit:junit:4.11'
+    testCompile 'junit:junit:4.11', 'net.sourceforge.htmlunit:htmlunit:2.8',
+            'org.mortbay.jetty:jetty:6.1.25','org.mortbay.jetty:jsp-2.1-jetty:6.1.25'
+    providedCompile 'javax.servlet:servlet-api:2.5'
 }
 
 tasks.withType(JavaCompile) {
