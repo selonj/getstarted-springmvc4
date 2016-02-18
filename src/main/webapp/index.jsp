@@ -11,6 +11,6 @@
     <title>SpringMvc</title>
 </head>
 <body>
-    Get Started Spring Mvc4
+    Get Started Spring Mvc4 Using Annotation Configuration
 </body>
 </html>
