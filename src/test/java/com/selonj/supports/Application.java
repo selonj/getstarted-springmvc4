@@ -1,11 +1,11 @@
-import com.gargoylesoftware.htmlunit.Page;
-import com.gargoylesoftware.htmlunit.WebAssert;
-import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
+package com.selonj.supports;
+
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.webapp.WebAppContext;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Created by L.x on 16-2-18.
@@ -13,13 +13,14 @@ import java.io.IOException;
 public class Application {
     public static final int SERVER_PORT = 80;
     public static final String WEB_APP_DIR = "src/main/webapp";
+    private final int serverPort;
     private Server server;
-    private HtmlPage page;
 
     public Application() {
-        server=new Server(SERVER_PORT);
+        serverPort = SERVER_PORT;
+        server = new Server(serverPort);
         server.setStopAtShutdown(true);
-        server.setHandler(new WebAppContext(){{
+        server.setHandler(new WebAppContext() {{
             setWar(WEB_APP_DIR);
         }});
     }
@@ -32,12 +33,7 @@ public class Application {
         server.stop();
     }
 
-    public void get(String url) throws IOException {
-        WebClient client=new WebClient();
-        page = client.getPage("http://localhost"+url);
-    }
-
-    public void hasSentMessageContaining(String pieceOfContent) {
-        WebAssert.assertTextPresent(page,pieceOfContent);
+    public URL webRootAsURL() throws MalformedURLException {
+        return new URL("http", "localhost", serverPort, "");
     }
 }
