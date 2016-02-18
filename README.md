@@ -35,3 +35,11 @@ compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
 ```xml
 <context:component-scan base-package="com.selonj"/>
 ```
+
+###5.Using <mvc:message-converters> to register JsonMessageConverter in [spring-webmvc.xml](src/main/webapp/WEB-INF/spring-webmvc.xml).###
+
+```xml
+<mvc:message-converters>
+    <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+</mvc:message-converters>
+```

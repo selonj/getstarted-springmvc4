@@ -23,6 +23,13 @@ public class SpringMvcTest {
         driver.hasSentMessageContaining("Get Started Spring Mvc4");
     }
 
+    @Test
+    public void echo() throws Exception {
+        driver.get("/echo?username=Dove");
+
+        driver.hasSentMessageContaining("{\"username\":\"Dove\"}");
+    }
+
     @After
     public void stop() throws Exception {
         application.stop();
