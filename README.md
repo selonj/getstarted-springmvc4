@@ -1,1 +1,1 @@
-#Get Started Spring WebMVC4#
+#Get Started Spring WebMVC4 Using XML Configuration#
