@@ -1,0 +1,26 @@
+group 'com.selonj'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.11'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+idea {
+    module {
+        excludeDirs += [file('.idea'), file('.gradle'), file('gradle')]
+    }
+}
