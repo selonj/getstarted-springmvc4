@@ -30,7 +30,11 @@ public class ApplicationDriver {
     }
 
     public void hasSentMessageContaining(String pieceOfContent) {
-        WebAssert.assertTextPresent(page, pieceOfContent);
+        try {
+            WebAssert.assertTextPresent(page, pieceOfContent);
+        } catch (AssertionError expected) {
+            throw new AssertionError(page.asXml(), expected);
+        }
     }
 
     public void close() {
